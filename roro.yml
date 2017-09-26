@@ -1,0 +1,8 @@
+project: background-removal
+runtime: rorodata/sandbox
+
+services:
+  - name: api
+    function: background_removal.predict
+  - name: default
+    command: gunicorn -b 0.0.0.0:8080 webapp:app
