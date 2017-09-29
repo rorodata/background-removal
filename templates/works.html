@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% block menu %}
+	<p><a href="/">Refresh &nbsp;|</a><a href="/works">&nbsp; How it works &nbsp;|</a><a href="https://github.com/rorodata/background-removal">&nbsp; Source Code &nbsp;|</a><a href="https://medium.com/@burgalon/deploying-your-keras-model-35648f9dc5fb">&nbsp; Original </a></p>
+{% endblock %}
+
+{% block inputurl %}
+	<h6>Step 1: Setup the project</h6>
+	<div class="terminal-window">
+		<section class="terminal" >
+			<div class="history"></div>
+			$&nbsp;<span class="prompt"></span>
+			<span class="terminal-data">roro background-removal ls</span>
+			<br/>
+			<span class="terminal-data">static</span>
+			<br/>
+			<span class="terminal-data">templates</span>
+			<br/>
+			<span class="terminal-data">background-removal.py</span>
+			<br/>
+			<span class="terminal-data">requirements.txt</span>
+			<br/>
+			<span class="terminal-data">web.py</span>
+			<br/>
+			<span class="terminal-data">roro.yml</span>
+			<br/>
+			<br/>
+		</section>
+	</div>
+	<br/>
+	<h6>Step 2: Compose the YAML file. The runtime sandbox contains all the infrastructure wiring, and it is customizable.</h6>
+	<div class="terminal-window">
+		<section class="terminal" >
+			<div class="history"></div>
+			$&nbsp;<span class="prompt"></span>
+			<span class="terminal-data">cat roro.yml</span>
+			<br/>
+			<span class="terminal-data">project: background-removal</span>
+			<br/>
+			<span class="terminal-data">runtime: rorodata/sandbox</span>
+			<br/>
+			<span class="terminal-data">services:</span>
+			<br/>
+			<span class="terminal-data">&nbsp; - name: api</span>
+			<br/>
+			<span class="terminal-data">&nbsp; function: background_removal.predict</span>
+			<br/>
+			<span class="terminal-data">&nbsp; - name: default</span>
+			<br/>
+			<span class="terminal-data">&nbsp; gunicorn -b 0.0.0.0:8080 webapp:app</span>			
+			<br/>
+			<br/>
+		</section>
+	</div>
+	<br/>
+	<h6>Step 3: Just deploy and your application is live!</h6>
+	<div class="terminal-window">
+		<section class="terminal" >
+			<div class="history"></div>
+			$&nbsp;<span class="prompt"></span>
+			<span class="terminal-data">roro deploy</span>
+			<br/>
+			<span class="terminal-data">Deploying background-removal ...</span>
+			<br/>
+			<span class="terminal-data">Building docker image ... done</span>
+			<br/>
+			<span class="terminal-data">Updating scheduled jobs ... done</span>
+			<br/>
+			<span class="terminal-data">Restarting services ...</span>
+			<br/>
+			<span class="terminal-data">&nbsp; &nbsp; api: https://background-removal--api.rorocloud.io/</span>
+			<br/>
+			<span class="terminal-data">&nbsp; &nbsp; default: https://background-removal.rorocloud.io/</span>			
+			<br/>
+			<br/>
+		</section>
+	</div>
+{% endblock %}
