@@ -1,3 +1,5 @@
+import os
+import sys
 from PIL import Image, ExifTags
 from scipy.misc import imresize
 import numpy as np
@@ -9,13 +11,30 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
+MODEL_URL = 'https://gitlab.com/fast-science/background-removal-server/raw/master/webapp/model/main_model.hdf5'
+MODEL_PATH = '/volumes/data/main_model.hdf5'
+
+def download_model():
+    """Downloads the model file.
+    """
+    if os.path.exists(MODEL_PATH):
+        print("Model file is already downloaded.")
+        return
+    # Download to a tmp file and move it to final file to avoid inconsistent state
+    # if download fails or cancelled.
+    print("Model file is not available. downloading...")
+    exit_status = os.system("wget {} -O {}.tmp".format(MODEL_URL, MODEL_PATH))
+    if exit_status == 0:
+        os.system("mv {}.tmp {}".format(MODEL_PATH, MODEL_PATH))
+    else:
+        print("Failed to download the model file", file=sys.stderr)
+        sys.exit(1)
 
 # Preload our model
+download_model()
 print("Loading model")
 model = load_model('/volumes/data/main_model.hdf5', compile=False)
 graph = tf.get_default_graph()
-
-
 
 def ml_predict(image):
     with graph.as_default():
