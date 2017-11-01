@@ -15,7 +15,10 @@ from firefly import Client
 app = Flask(__name__)
 # app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
 
-API_ENDPOINT = "https://background-removal--api.rorocloud.io"
+# find the project name from the env and use that to construct
+# the endpoint for the API.
+NAME = os.getenv("PROJECT", "background-removal")
+API_ENDPOINT = "https://{}--api.rorocloud.io".format(NAME)
 
 api_req = Client(API_ENDPOINT)
 
