@@ -57,10 +57,6 @@ def predict():
 	else: 
 		return redirect(url_for('homepage'))
 
-@app.route('/works')
-def works():
-    return render_template('works.html')
-
 @app.route('/')
 def homepage():
     return render_template('index.html')
