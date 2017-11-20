@@ -150,3 +150,24 @@ body {
 
 /* Terminal Window Styling - RB */
 
+/* Special style for image as button */
+
+.image-back {
+    background: #FFF;
+    border: 0px;
+    cursor: pointer;
+}
+
+/* Special style for image as button */
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 150%;
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-size: 100%;
+    line-height: 1.2;
+  }
+}
