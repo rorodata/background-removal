@@ -4,3 +4,4 @@ runtime: rorodata/sandbox
 services:
   - name: default
     function: background_removal.predict
+    cors_allow_origins: "*"

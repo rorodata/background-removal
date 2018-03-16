@@ -3,4 +3,3 @@ flask
 pillow
 Jinja2
 Werkzeug
--e git+git://github.com/rorodata/firefly.git@cors#egg=firefly-python
