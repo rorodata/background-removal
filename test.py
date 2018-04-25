@@ -6,7 +6,7 @@ import firefly
 import sys
 import shutil
 
-background_removal = firefly.Client("https://background-removal--api.rorocloud.io/")
+background_removal = firefly.Client("https://background-removal.rorocloud.io/")
 
 def main():
     image_path = sys.argv[1]
