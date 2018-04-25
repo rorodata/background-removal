@@ -1,5 +1,5 @@
 project: background-removal
-runtime: rorodata/sandbox
+runtime: python3-keras
 
 services:
   - name: default
