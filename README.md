@@ -4,7 +4,7 @@ You can deploy an API to remove background from an image. Such an API can be use
 
 ## Original Authors
 
-The model is developed by Alon Burg and Gidi Shperber, more details ![here](https://medium.com/@burgalon/deploying-your-keras-model-35648f9dc5fb)
+The model is developed by Alon Burg and Gidi Shperber, more details [here](https://medium.com/@burgalon/deploying-your-keras-model-35648f9dc5fb)
 
 
 ## Deploy with rorodata button
