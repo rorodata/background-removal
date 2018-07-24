@@ -1,5 +1,5 @@
 project: background-removal
-runtime: python3-keras
+runtime: python3-keras:2018.03
 
 services:
   - name: default
